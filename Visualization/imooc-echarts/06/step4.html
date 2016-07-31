@@ -30,11 +30,11 @@
       <div id="main" style="height:500px;"></div>
     </div>
   </div>
-</div>  
+</div>
 <script src='../jquery.min.js'></script>
 <script src='../echarts.min.js'></script>
 <script src='../china.js'></script>
-<script>  
+<script>
 // 百度地图的开发者秘钥
 var token = 'clR7lmWlaguV9WUYKM7OGMbj'
 
@@ -50,6 +50,7 @@ eSearchBtn.click(function() {
     $.getJSON(url + place + '&callback=?', function(res) {
       if (res.status === 0) {
         drawMap(place, res.result.location)
+        console.log(place, res.result.location);
       }else{
         alert('百度没有找到地址信息')
       }
@@ -97,9 +98,7 @@ function drawMap(name, loc) {
         name: name,
         value: [loc.lng, loc.lat]
       }],
-      symbolSize: function(val) {
-        return 10;
-      },
+      symbolSize: x=>10
     }]
   }
   myChart.setOption(option)

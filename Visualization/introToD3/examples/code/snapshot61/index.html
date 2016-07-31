@@ -19,7 +19,7 @@
 
       function render(data, color){
         var rects = svg.selectAll("rect").data(data);
-        
+
         rects.enter().append("rect")
           .attr("x", scale)
           .attr("y", 50)
@@ -28,8 +28,8 @@
           .attr("fill", color);
       }
 
-      render([1, 2, 3], "red");
-      render([1, 2, 3, 4, 5], "blue");
+      render([4, 2, 3], "red");
+      render([4, 4, 2, 1, 5], "blue");
 
 
     </script>
